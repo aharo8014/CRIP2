@@ -1,4 +1,3 @@
-import yfinance as yf
 import pandas as pd
 from datetime import datetime
 import streamlit as st
@@ -102,9 +101,89 @@ def generate_recommendation(selected_date, forecasts):
 
 # Streamlit App
 def streamlit_app():
-    st.title("Plataforma de Previsión de Operaciones con Yahoo Finanzas")
+    st.title("PHAROS - Plataforma de Previsión de Operaciones con Yahoo Finanzas")
 
-    cryptos = ['BTC-USD', 'ETH-USD', 'XRP-USD', 'LTC-USD', 'DOGE-USD']
+    cryptos = [
+    'BTC-USD',   # Bitcoin
+    'ETH-USD',   # Ethereum
+    'XRP-USD',   # Ripple
+    'LTC-USD',   # Litecoin
+    'DOGE-USD',  # Dogecoin
+    'ADA-USD',   # Cardano
+    'SOL-USD',   # Solana
+    'DOT-USD',   # Polkadot
+    'AVAX-USD',  # Avalanche
+    'MATIC-USD', # Polygon
+    'BNB-USD',   # Binance Coin
+    'USDT-USD',  # Tether
+    'USDC-USD',  # USD Coin
+    'BCH-USD',   # Bitcoin Cash
+    'LINK-USD',  # Chainlink
+    'UNI-USD',   # Uniswap
+    'XLM-USD',   # Stellar
+    'ATOM-USD',  # Cosmos
+    'VET-USD',   # VeChain
+    'ALGO-USD',  # Algorand
+    'FTM-USD',   # Fantom
+    'ICP-USD',   # Internet Computer
+    'FIL-USD',   # Filecoin
+    'AAVE-USD',  # Aave
+    'SAND-USD',  # The Sandbox
+    'MANA-USD',  # Decentraland
+    'GRT-USD',   # The Graph
+    'XTZ-USD',   # Tezos
+    'EOS-USD',   # EOS
+    'THETA-USD', # Theta Network
+    'LUNA1-USD', # Terra 2.0
+    'TRX-USD',   # TRON
+    'NEAR-USD',  # NEAR Protocol
+    'HNT-USD',   # Helium
+    'CHZ-USD',   # Chiliz
+    'ENJ-USD',   # Enjin Coin
+    'ZIL-USD',   # Zilliqa
+    'RUNE-USD',  # THORChain
+    'KSM-USD',   # Kusama
+    'STX-USD',   # Stacks
+    'GALA-USD',  # Gala
+    'DYDX-USD',  # dYdX
+    'CRV-USD',   # Curve DAO Token
+    '1INCH-USD', # 1inch Network
+    'SNX-USD',   # Synthetix
+    'BAND-USD',  # Band Protocol
+    'OCEAN-USD', # Ocean Protocol
+    'KAVA-USD',  # Kava
+    'ANKR-USD',  # Ankr
+    'TWT-USD',   # Trust Wallet Token
+    'COMP-USD',  # Compound
+    'CAKE-USD',  # PancakeSwap
+    'RAY-USD',   # Raydium
+    'MOVR-USD',  # Moonriver
+    'XEM-USD',   # NEM
+    'BTG-USD',   # Bitcoin Gold
+    'DASH-USD',  # Dash
+    'RVN-USD',   # Ravencoin
+    'KNC-USD',   # Kyber Network
+    'LRC-USD',   # Loopring
+    'AR-USD',    # Arweave
+    'CFX-USD',   # Conflux
+    'GNO-USD',   # Gnosis
+    'PERP-USD',  # Perpetual Protocol
+    'YFI-USD',   # yearn.finance
+    'COTI-USD',  # COTI
+    'UMA-USD',   # UMA
+    'RSR-USD',   # Reserve Rights
+    'CELR-USD',  # Celer Network
+    'CTSI-USD',  # Cartesi
+    'XDC-USD',   # XDC Network
+    'ELF-USD',   # aelf
+    'MTL-USD',   # Metal
+    'OM-USD',    # MANTRA DAO
+    'JST-USD',   # JUST
+    'REEF-USD',  # Reef
+    'IDEX-USD',  # IDEX
+    'RAD-USD',   # Radicle
+    'DNT-USD'    # district0x
+]
     selected_crypto = st.selectbox("Selecciona la Criptomoneda", cryptos, index=0)
 
     data = extract_historical_data(selected_crypto, start_date='2022-01-01')
@@ -136,17 +215,6 @@ def streamlit_app():
     }
     recommendation = generate_recommendation(selected_date, forecasts)
     st.write(f"Recomendación para el día {selected_date}: **{recommendation}**")
-
-# Pie de página
-st.markdown("""
----
-*EJERCICIO PRÁCTICO 3*
-## **INTEGRANTES**
-* Natasha Villacis
-* Alexander Haro
-* Darwin Ipiales
-* Kempis Guerrero.
-""")
 
 if __name__ == '__main__':
     streamlit_app()
