@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 import matplotlib.pyplot as plt
-
+import yfinance as yf
 # Configuración de Streamlit
 st.set_page_config(layout="wide")
 
